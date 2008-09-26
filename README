@@ -1,0 +1,17 @@
+FlashベースのTwitterクライアント。
+ただし、バックグラウンドでJ2EEを起動しているのでJavaが必要。
+
+効果音は以下のサイトから頂きました。
+http://utm-game-web.hp.infoseek.co.jp/free-sound.htm
+
+# 実行方法
+./start.shを実行したあと http://localhost:2110/ にブラウザでアクセスすれば利用できる。
+
+
+# ソースコードからのビルド
+JDKとFlex SDKが必要。
+flex/build.xmlに適切なFlexコンパイラの位置を記述する必要がある。
+環境設定が終われば以下のコマンドを実行する。
+
+build:
+  $./build.sh

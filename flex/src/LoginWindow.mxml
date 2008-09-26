@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" title="Login">
+    <mx:Script>
+    <![CDATA[
+    import mx.events.CloseEvent;
+    import mx.managers.PopUpManager;
+    import mx.controls.Text;
+
+    public var user_name : String;
+    public var password : String;
+
+    function onClose() : void{
+        this.user_name = userName.text;
+        this.password = Password.text;
+        PopUpManager.removePopUp(this);
+        dispatchEvent(new CloseEvent(CloseEvent.CLOSE, false, false, 1));
+    }
+    
+    function onKeyDown(e:KeyboardEvent):void{
+    	if (e.keyCode == Keyboard.ENTER) onClose();
+    }
+    
+    ]]>
+    </mx:Script>
+    <mx:VBox>
+        <mx:HBox>
+            <mx:Label text="ユーザー名 :" />
+            <mx:TextInput id="userName" />
+        </mx:HBox>
+        <mx:HBox>
+            <mx:Label text="パスワード :" />
+            <mx:TextInput id="Password" displayAsPassword="true" keyDown="onKeyDown(event)" />
+        </mx:HBox>
+        <mx:HBox>
+            <mx:Button label="OK" click="onClose();"  textAlign="right"/>
+        </mx:HBox>
+    </mx:VBox>
+</mx:TitleWindow>
+

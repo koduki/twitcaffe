@@ -1,0 +1,14 @@
+*~
+#*#
+.*#
+.classpath
+.settings
+.hg/
+.hgignore
+.hgtags
+.manager/
+.project
+.actionScriptProperties
+.flexProperties
+.settings/org.eclipse.core.resources.prefs
+target

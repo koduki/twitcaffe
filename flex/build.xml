@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TwitCaffe" default="build" basedir=".">
+  
+  <property name="FLEX_HOME" value="/opt/Adobe/flex/3.0.3" />
+  <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/lib/flexTasks.jar" />
+
+  <!-- mxmlをコンパイルするターゲット -->
+  <target name="build">
+    <mxmlc file="src/TwitCaffe.mxml" output="../src/main/webapp/TwitCaffe.swf">
+      <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+    </mxmlc>
+  </target>
+</project>

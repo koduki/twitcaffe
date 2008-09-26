@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" xmlns:local="*" borderStyle="none" creationComplete="onLoad()" xmlns:ui="ui.*">
+	<mx:Script source="TwitCaffe.as"/>
+	<mx:Script>
+		<![CDATA[
+			public var current_user:String;
+			public var current_twitter:String;
+		]]>
+	</mx:Script>
+	<mx:Canvas id="headPanel" height="107" right="10" top="10" left="10" borderColor="#F6F8FA">
+		<mx:Label name="userName" fontWeight="bold" fontSize="12" x="100"/>
+		<mx:TextArea name="status" height="77" y="20" left="100" right="0" editable="false" wordWrap="true"/>
+		<mx:Image name="icon" x="0" y="0" width="64" height="64" />		
+		<mx:Button label="Favorite" textAlign="center" labelPlacement="left" y="80" width="80" x="0"  click="onFavoriteClick()"/>
+	</mx:Canvas>
+	
+	<mx:TabBar x="10" y="145" dataProvider="viewstack" />	
+	<mx:ViewStack id="viewstack" top="165" right="10" left="10" bottom="60" borderStyle="solid"  creationPolicy="all">
+		<mx:Canvas label="Timeline" id="ax">
+			<mx:List id="timeline" width="100%" height="100%" dataProvider="{TimelineStatuses}" itemRenderer="StatusPanel"/>	
+		</mx:Canvas>
+		<mx:Canvas label="Replies">
+			<mx:List id="replies" width="100%" height="100%" dataProvider="{RepliesStautses}" itemRenderer="StatusPanel"/>	
+		</mx:Canvas>
+		<mx:Canvas label="Favorite">
+			<mx:List id="favorite" width="100%" height="100%" dataProvider="{FavoriteStatuses}" itemRenderer="StatusPanel"/>	
+		</mx:Canvas>
+		<mx:Canvas id="console" label="Console">
+			<mx:TextArea name="textArea" width="100%" height="100%" text="" />
+		</mx:Canvas>			
+	</mx:ViewStack>
+	
+	<mx:Canvas height="45" right="10" left="10" bottom="10">
+		<ui:TextAreaEx id="txtInput" height="45" right="77" left="0" bottom="0" />
+		<mx:Button y="13" label="更新" width="59" right="10" click="onUpdateClick()"/>
+	</mx:Canvas>
+</mx:Application>
